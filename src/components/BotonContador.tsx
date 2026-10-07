@@ -17,36 +17,15 @@
 
 import { Pressable, StyleSheet, Text } from 'react-native';
 
-/**
- * Variantes visuales disponibles del botón.
- *
- * @remarks
- * `primary` = acción principal · `secondary` = acción alterna · `danger` = acción destructiva.
- */
 export type BotonVariante = 'primary' | 'danger' | 'secondary';
 
-/**
- * Props de `BotonContador`.
- */
 export interface BotonContadorProps {
-  /** Texto que muestra el botón. */
   label: string;
-  /** Se ejecuta cuando el usuario toca el botón. */
   onPress: () => void;
-  /** Variante de color (ver `BotonVariante`). Por defecto: `'primary'`. */
   variante?: BotonVariante;
-  /** Si es `true`, el botón no responde al toque y se ve atenuado. */
   disabled?: boolean;
 }
 
-/**
- * Botón táctil reutilizable con variantes y retroalimentación al toque.
- *
- * @remarks
- * Usa `Pressable` y reacciona al estado `pressed` para dar feedback visual.
- *
- * @param props - Ver la interfaz `BotonContadorProps`.
- */
 export function BotonContador({
   label,
   onPress,
@@ -78,18 +57,29 @@ const styles = StyleSheet.create({
     borderColor: '#0A0A0A',
     alignItems: 'center',
   },
-  // 🤔 ¿Qué propiedad de estilo necesita cada variante para pintarse con su color?
-  primary: {},
-  secondary: {},
-  danger: {},
+
+  primary: {
+    backgroundColor: '#FDE047',
+  },
+
+  secondary: {
+    backgroundColor: '#38BDF8',
+  },
+
+  danger: {
+    backgroundColor: '#F43F5E',
+  },
+
   label: {
     fontWeight: '800',
     fontSize: 16,
     color: '#0A0A0A',
   },
+
   pressed: {
     transform: [{ scale: 0.97 }],
   },
+
   disabled: {
     opacity: 0.4,
   },
